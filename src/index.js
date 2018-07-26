@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers, applyMiddleware} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 
 
+const render = () => ReactDOM.render(<App />, document.getElementById('root'))
+//store.subscribe(render);
+render();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
 registerServiceWorker();
 
 
