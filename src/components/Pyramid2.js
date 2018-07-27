@@ -9,15 +9,20 @@ class Pyramid2 extends Component{
         this.state= {
         	allNums: ["Four","Three","Two","One"],
         	allBlocks: [],
-        	filteredCols: [],
-        	firstCols: [],
-        	index: -1,
+
+        	thisCol: -1,
+        	thisRow: 0,
+
+
+        	
         	firstCol: "blue",
         	secondCol: "yellow",
         	startBlinking: true,
         	universalTimer: -1
         }
         this.createPyramid=this.createPyramid.bind(this);
+        this.timer = this.timer.bind(this);
+        this.timer2 = this.timer2.bind(this);
 
     }
 
@@ -56,6 +61,7 @@ class Pyramid2 extends Component{
     	console.log("component did mount - here is the current state" );
     	console.log(this.state.allBlocks);
 
+    	//Instigates regular blinking:
     	this.wrapper();
 
 
@@ -71,7 +77,6 @@ class Pyramid2 extends Component{
     	//this.wrapper();
     	//this.timerID = setInterval(() => this.tick(), 1000);
     }
-
  
 
     timer(){
@@ -113,9 +118,81 @@ class Pyramid2 extends Component{
     	}
     }
 
-   wrapper(){
 
-   	//Filter and set state
+    timer2(){
+
+    	let {allBlocks} = this.state;
+
+    	let newCol = this.state.thisCol;
+    	newCol++;
+
+    	//If need to change row since newCol out of bounds: 
+    	if(newCol >= allBlocks[this.state.thisRow].props.children.length){
+    		let newRow = this.state.thisRow;
+    		newRow++;
+    		this.setState({thisCol:0, thisRow: newRow});
+    		console.log("Changed Rows");
+    		newCol =0;
+
+    		if(newRow >= allBlocks.length){
+    			console.log("End of pyramid, stopping timer");
+
+				clearInterval(this.timer2);
+				return;
+    		}
+    	}
+
+    	this.setState({thisCol: newCol})
+    	
+    	//Debugging printing: 
+    	var d = new Date ();
+    	var m = d.getMinutes();
+    	var s = d.getSeconds();
+
+
+    	console.log("Row: "+this.state.thisRow + " Col: "+ this.state.thisCol+ ". \nWith time: "+m + ":"+ s);
+
+    	//Access the correct item: 
+    	let currElement = allBlocks[this.state.thisRow].props.children[newCol];
+    	console.log("Curr item key: "+ currElement.key); 
+
+
+
+    		// //Change color initially
+    	 // 	console.log("key is: "+ this.state.filteredCols[newNum].key);
+    	 // 	this.state.filteredCols[newNum]= <p>"new comp"</p>;
+    	 // 	this.render();
+    	 // 	console.log("rendered");
+
+
+
+    	 // 	//Here change color back
+    	 // 	setTimeout(()=>console.log("CHANGE"),500);
+
+
+    	 // 	//Sets index so can iterate to new item
+    	 // 	this.setState({index: newNum});
+
+
+    	 // 	//Somehow need to force rerender?
+    	 // 	console.log(this.state.filteredCols);
+
+
+    	
+    	
+    }
+
+   wrapper(){
+    	let {allBlocks} = this.state;
+    	this.timer2 = setInterval(this.timer2,2000);
+
+
+
+    	
+
+
+
+    	//Filter and set state
     	// this.state.allBlocks.forEach(
     	// 	(row)=>{
     	// 		console.log(row.props.children);
@@ -130,14 +207,6 @@ class Pyramid2 extends Component{
     	// 	}
     	// );
 
-
-
-
-
-
-
-
-
    		//OPTION 1: this.state.index gets changed weirdly
    		// if(this.state.startBlinking){
    		// 	this.timer = setInterval(this.timer,2000);
@@ -146,6 +215,8 @@ class Pyramid2 extends Component{
    		//timer=0;
 
    }
+
+
 
    		//this.state.filteredCols[i]),
 
