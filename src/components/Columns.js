@@ -9,22 +9,15 @@ class Columns extends Component{
 	}
 
 	componentDidUpdate(){
-		console.log("Col component updated");
+		
 	}
 
 
 	render(){
 		return(
-			<div className ="Columns" style={{"color": this.state.textColor}}>{this.props.text}</div>
+			<div className ="Columns" style={{"color": this.props.color}}>{this.props.text}</div>
 		)
 	}
-
-
-
-
-
-
-
 }
 
 export default Columns;

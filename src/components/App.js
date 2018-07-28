@@ -11,7 +11,7 @@ const App = () => {
           <h1 className="App-title">Countdown</h1>
         </header>
         <div className="App-intro">
-        <Pyramid2/>
+        <Pyramid2 canBlink={true}/>
         </div>
       </div>
     );

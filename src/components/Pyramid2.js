@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Column from './Columns.js';
-//import './index.css';
+import './../pyramid.css';
 
 
 
@@ -14,13 +14,13 @@ class Pyramid2 extends Component{
         	thisCol: -1,
         	thisRow: 0,
 
-        	startBlinking: true,
+        	startBlinking: this.props.canBlink,
         }
+
         this.createPyramid=this.createPyramid.bind(this);
         this.timer2 = this.timer2.bind(this);
-
     }
- 
+
     //Create Pyramid - called in componentWillMount for rendering
     createPyramid () {
     	let finalPyramid = [];
@@ -51,7 +51,6 @@ class Pyramid2 extends Component{
     componentWillMount(){
     	console.log("component will mount");
     	this.setState({allBlocks: this.createPyramid()});
-    	console.log(this.state.allBlocks);
     }
 
     componentDidMount(){
@@ -59,59 +58,70 @@ class Pyramid2 extends Component{
     	console.log(this.state.allBlocks);
 
     	//Instigates regular blinking:
-    	//this.wrapper();
+    	this.wrapper();
     }
  
     compontDidUpdate(){
     	console.log("state changed: "+ this.state.allBlocks);
-
     }
 
     timer2(){
     	let {allBlocks} = this.state;
-
     	let newCol = this.state.thisCol;
     	newCol++;
 
 
     	//If need to change row since newCol out of bounds: 
-    	if(newCol >= allBlocks[this.state.thisRow].props.children.length){
+    	if(newCol >= allBlocks[this.state.thisRow].length){
     		let newRow = this.state.thisRow;
     		newRow++;
-    		this.setState({thisCol:0, thisRow: newRow});
-    		console.log("Changed Rows");
-    		newCol =0;
-
+    		this.setState({thisCol: 0, thisRow: newRow});
+    		//console.log("Changed Rows");
+    		
     		if(newRow >= allBlocks.length){
-    			console.log("End of pyramid, stopping timer");
-				clearInterval(this.timer2);
+
+
+    			// //Need to magically reset the last block whoops
+    			// newCol = allBlocks[allBlocks.length-1].length-1;
+
+    			//correct last item: allBlocks[allBlocks.length-1][newCol]);
+
+    			let lastBlock = allBlocks[allBlocks.length-1].filter((col, colIndex)=>
+    			{
+    				if(newCol === allBlocks[newRow-1].length-1);
+    				console.log("last element is");
+    				return {
+    					...col,
+    					color: "blue"
+    				};
+    			}); 
+    			console.log(lastBlock);
+    			clearInterval(this.timer2);
 				return;
-    		}
+
+			};
+			newCol =0;
+    		
     	}
+    	
+    	this.setState({thisCol: newCol});
+    	let newBlocks = allBlocks.map((row, rowindex) => {
+    		return row.map((column, colindex) => {
+    			return {
+    				...column,
+    				color: (this.state.thisRow === rowindex && this.state.thisCol === colindex) ? "red": "blue"
+          		};
 
-    	this.setState({thisCol: newCol})
-    
-    	//Access the correct item: 
-    	let currElement = allBlocks[this.state.thisRow].props.children[newCol];
-    	//console.log("Curr item key: "+ currElement.key + " is color: "+ currElement.props.color); 
+        	});
 
-    	let currEle = allBlocks[this.state.thisRow].props.children[newCol];
-    	//console.log(currEle);
-
-    	//Cloning attempt: 
-    	let newItem = React.cloneElement(currEle, {"color": "#FF0000"});
-    	allBlocks[this.state.thisRow].props.children[newCol] = newItem;
-    	//console.log("new item " + allBlocks[this.state.thisRow].props.children[newCol].key+" "+allBlocks[this.state.thisRow].props.children[newCol].props.color);
-
-    	//Force Re-render
-    	this.render();
-
+      	});
+    	this.setState({ allBlocks: newBlocks});
+    	
 
     }
 
    wrapper(){
-    	let {allBlocks} = this.state;
-    	this.timer2 = setInterval(this.timer2,2000);
+    	this.timer2 = setInterval(this.timer2,1000);
    }
 
 	render(){
