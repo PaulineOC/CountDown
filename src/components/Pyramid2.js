@@ -3,22 +3,18 @@ import Column from './Columns.js';
 import './../pyramid.css';
 
 
-
 class Pyramid2 extends Component{
 	constructor(props) {
 		super(props);
         this.state= {
         	allNums: ["Four","Three","Two","One"],
         	allBlocks: [],
-
         	thisCol: -1,
         	thisRow: 0,
-
         	startBlinking: this.props.canBlink,
         }
-
         this.createPyramid=this.createPyramid.bind(this);
-        this.timer2 = this.timer2.bind(this);
+        this.timer = this.timer.bind(this);
     }
 
     //Create Pyramid - called in componentWillMount for rendering
@@ -62,10 +58,9 @@ class Pyramid2 extends Component{
     }
  
     compontDidUpdate(){
-    	console.log("state changed: "+ this.state.allBlocks);
     }
 
-    timer2(){
+    timer(){
     	let {allBlocks} = this.state;
     	let newCol = this.state.thisCol;
     	newCol++;
@@ -81,22 +76,17 @@ class Pyramid2 extends Component{
     		if(newRow >= allBlocks.length){
 
 
-    			// //Need to magically reset the last block whoops
-    			// newCol = allBlocks[allBlocks.length-1].length-1;
+    			//Need to magically reset the last block whoops
+    			newCol = allBlocks[allBlocks.length-1].length-1;
+    			//correct last item: 
+    			let lastItem = allBlocks[allBlocks.length-1][newCol];
+    			allBlocks[allBlocks.length-1][newCol] = 
+    				{
+    				...lastItem,
+    				color:"blue"};
 
-    			//correct last item: allBlocks[allBlocks.length-1][newCol]);
-
-    			let lastBlock = allBlocks[allBlocks.length-1].filter((col, colIndex)=>
-    			{
-    				if(newCol === allBlocks[newRow-1].length-1);
-    				console.log("last element is");
-    				return {
-    					...col,
-    					color: "blue"
-    				};
-    			}); 
-    			console.log(lastBlock);
-    			clearInterval(this.timer2);
+    			this.setState(allBlocks: allBlocks);
+    			clearInterval(this.timer);
 				return;
 
 			};
