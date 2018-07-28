@@ -65,7 +65,6 @@ class Pyramid2 extends Component{
     	let newCol = this.state.thisCol;
     	newCol++;
 
-
     	//If need to change row since newCol out of bounds: 
     	if(newCol >= allBlocks[this.state.thisRow].length){
     		let newRow = this.state.thisRow;
@@ -76,24 +75,20 @@ class Pyramid2 extends Component{
     		if(newRow >= allBlocks.length){
 
 
-    			//Need to magically reset the last block whoops
+    			//Rest last item back to blue
     			newCol = allBlocks[allBlocks.length-1].length-1;
-    			//correct last item: 
     			let lastItem = allBlocks[allBlocks.length-1][newCol];
     			allBlocks[allBlocks.length-1][newCol] = 
     				{
     				...lastItem,
     				color:"blue"};
-
     			this.setState(allBlocks: allBlocks);
     			clearInterval(this.timer);
 				return;
 
 			};
 			newCol =0;
-    		
     	}
-    	
     	this.setState({thisCol: newCol});
     	let newBlocks = allBlocks.map((row, rowindex) => {
     		return row.map((column, colindex) => {
@@ -106,8 +101,6 @@ class Pyramid2 extends Component{
 
       	});
     	this.setState({ allBlocks: newBlocks});
-    	
-
     }
 
    wrapper(){
@@ -134,8 +127,6 @@ class Pyramid2 extends Component{
 		</div>
          )
 	}
-  
-
 }
 
 export default Pyramid2;
