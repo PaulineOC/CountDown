@@ -104,7 +104,7 @@ class Pyramid2 extends Component{
     }
 
    wrapper(){
-    	this.timer2 = setInterval(this.timer2,1000);
+    	this.timer = setInterval(this.timer,1000);
    }
 
 	render(){
