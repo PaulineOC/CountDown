@@ -29,7 +29,7 @@ class Pyramid2 extends Component{
     	let count = 0;
     	let countRange = ((allNums.length/2) + (Math.pow(allNums.length,2)/2) );
 
-    	let randomArr = this.randonNums(countRange - 2, 1,countRange);
+    	let randomArr = this.randonNums(countRange / 11, 1,countRange);
     	console.log("random Arr: "+ randomArr);
 		//Rows
 		for(let i=0;i<allNums.length;i++){

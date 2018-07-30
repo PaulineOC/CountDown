@@ -18,7 +18,8 @@ class Columns extends Component{
 				{
 					"color": this.props.color,
 					"width:": this.props.width,
-					"float": "left"
+					"float": "left",
+					"font-size": (100.0 / this.props.text.length)
 				}
 
 			}>

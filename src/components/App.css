@@ -28,7 +28,10 @@
 }
 
 .Add-Word{
-  padding-top: 2%;
+  font-size: 2em;
+}
+
+.formContainer{
+  padding-top:2%;
   padding-bottom: 2%;
-  font-size: 3em;
 }

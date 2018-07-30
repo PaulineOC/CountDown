@@ -21,18 +21,18 @@ class AddWord extends Component{
 
 	render(){
 	    return (
-	        <form className="Add-Word" name="addWord" onSubmit={this.submitform}>
-	            <input 
-	            	className="Add-Word"
-	            	ref="_word" 
-	            	type="text"
-	            	placeholder="study"
-	            	required
-	            />
-	            <input type="submit" value="Submit" disabled={this.state.submitting} />	            
-
-	       
-	        </form>
+	    	<div className="formContainer" >
+		        <form className="Add-Word" name="addWord" onSubmit={this.submitform}>
+		            <input 
+		            	className="Add-Word"
+		            	ref="_word" 
+		            	type="text"
+		            	placeholder="study"
+		            	required
+		            />
+		            <input type="submit" value="Submit" disabled={this.state.submitting} />	            
+		        </form>
+	        </div>
 
 	    )
 	}

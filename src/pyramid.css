@@ -1,20 +1,25 @@
 .Row{
 	width: 100%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	padding-top:5px;
 	padding-bottom: 5px;
-
-
 }
 
 .Pyramid{
-
 	display: block;
 	margin: auto;
 	width: 75%;
 	background-color: pink;
 	font-size: 4em;
+}
+
+.Columns {
+	width: 10%;
+	background-color: orange;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 
