@@ -10,14 +10,21 @@
 	display: block;
 	margin: auto;
 	width: 75%;
+	font-size: 2em;
 }
 
 .Columns {
+
 	width: 10%;
 	background-color: orange;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: clip;
+
+
 }
 
 
