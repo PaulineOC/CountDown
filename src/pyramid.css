@@ -1,14 +1,22 @@
 .Row{
 	width: 100%;
-	float: left;
+	display: flex;
+	justify-content: space-around
+
+
 }
 
 .Pyramid{
 	display: block;
 	margin: auto;
 	width: 75%;
-	background-color: green;
-	font-size: 4em
+	background-color: pink;
+	font-size: 4em;
+}
+
+.Column{
+	
+
 }
 
 
