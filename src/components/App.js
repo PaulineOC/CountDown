@@ -20,10 +20,8 @@ class App extends Component{
 
   }
 
-
   addWordToPyramid(word){
     this.setState({formWord: word.value });
-
 
   }
 
@@ -41,10 +39,7 @@ class App extends Component{
 
     )
   }
-
 }
-
-
 
 
 export default App;
