@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class AddWord extends Component{
 	constructor(props){
 		super(props);
@@ -22,6 +23,7 @@ class AddWord extends Component{
 	    return (
 	        <form className="Add-Word" name="addWord" onSubmit={this.submitform}>
 	            <input 
+	            	className="Add-Word"
 	            	ref="_word" 
 	            	type="text"
 	            	placeholder="study"

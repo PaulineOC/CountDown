@@ -1,12 +1,15 @@
 .Row{
 	width: 100%;
 	display: flex;
-	justify-content: space-around
+	justify-content: space-around;
+	padding-top:5px;
+	padding-bottom: 5px;
 
 
 }
 
 .Pyramid{
+
 	display: block;
 	margin: auto;
 	width: 75%;
@@ -14,10 +17,6 @@
 	font-size: 4em;
 }
 
-.Column{
-	
-
-}
 
 
 
