@@ -13,11 +13,7 @@ class AddWord extends Component{
 
 	submitform(e){
 		e.preventDefault();
-		console.log("Add Word Submit Function");
 		const {_word}= this.refs;
-
-		//having trouble calling this function
-		//console.log(this.state.passToParent)
 		this.state.passToParent(_word);
 		this.setState({submitting: true});
 	}

@@ -9,7 +9,7 @@ class Pyramid2 extends Component{
 
 		super(props);
         this.state= {
-        	allNums: ["Four","Three","Two","One"],
+        	allNums: ["Ten", "Nine" ,"Eight", "Seven", "Six", "Five", "Four","Three","Two","One"],
         	allBlocks: [],
         	thisCol: -1,
         	thisRow: 0,
@@ -28,26 +28,22 @@ class Pyramid2 extends Component{
  		
     	let count = 0;
     	let countRange = ((allNums.length/2) + (Math.pow(allNums.length,2)/2) );
-    	console.log("here is count range " +countRange+ " "+ allNums.length);
 
     	let randomArr = this.randonNums(countRange - 2, 1,countRange);
-    	console.log("random Arr2 "+ randomArr);
-
-    	//let toReplace = this.getNRandomNumbers(3, 1, allNums.length - 2);
-
+    	console.log("random Arr: "+ randomArr);
 		//Rows
 		for(let i=0;i<allNums.length;i++){
 			let rowString = "RowNum: " +i;
 			let allCols = [];
 			//Cols
 			for(let j=0;j<i+1;j++){
-				console.log();
 				let colString = "ColNum: "+j;
 				let column = {
 		        	row: i,
 		        	key: `${rowString}${colString}`,
-		          	text: newWord !== "" && ((count % i )=== randomArr[j]) ? newWord : allNums[i],
-		          	color: "blue"
+		          	text: newWord !== "" && (randomArr.indexOf(count)>-1) ? newWord : allNums[i],
+		          	color: "blue",
+		          	width: `${i+1}%`
 		        };
 				allCols.push(column);
 				count++;
@@ -98,8 +94,17 @@ class Pyramid2 extends Component{
     	if(prevProps.word!==this.props.word){
 
     		console.log("form word "+ this.props.word );
-    		this.setState({allBlocks: this.createPyramid(this.props.word, this.state.allNums)});
-    	} 	   	
+    		this.setState({
+    			allBlocks: this.createPyramid(this.props.word, this.state.allNums), 
+    			startBlinking: true,
+    			thisCol:-1,
+    			thisRow: 0
+    		});
+
+    		if(prevState.startBlinking!==this.state.startBlinking){
+    			this.wrapper();
+    		}
+    	}
     }
 
     timer(){
@@ -120,8 +125,14 @@ class Pyramid2 extends Component{
     				{
     				...lastItem,
     				color:"blue"};
-    			this.setState(allBlocks: allBlocks);
-    			clearInterval(this.timer);
+    			this.setState({
+    					allBlocks: allBlocks,
+    					thisCol: -1,
+    					thisRow: 0,
+    				}
+
+    			);
+    			//clearInterval(this.timer);
 				return;
 			};
 			newCol =0;
@@ -148,9 +159,7 @@ class Pyramid2 extends Component{
 
 	render(){
 		return(
-		<div className ="Pyramid2">
-
-
+		<div className ="Pyramid">
 			{this.state.allBlocks.map((block, index) => {
 	          return (
 	            <div className="Row" key={"Row " + index}>

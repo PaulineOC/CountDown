@@ -12,10 +12,17 @@ class Columns extends Component{
 		
 	}
 
-
 	render(){
 		return(
-			<div className ="Columns" style={{"color": this.props.color}}>{this.props.text}</div>
+			<div className ="Columns" style={
+				{
+					"color": this.props.color,
+					"width:": this.props.width,
+					"float": "left"
+				}
+
+			}>
+			{this.props.text}</div>
 		)
 	}
 }

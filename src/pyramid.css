@@ -1,6 +1,17 @@
 .Row{
 	width: 100%;
+	float: left;
 }
+
+.Pyramid{
+	display: block;
+	margin: auto;
+	width: 75%;
+	background-color: green;
+	font-size: 4em
+}
+
+
 
 
 

@@ -17,7 +17,6 @@ class App extends Component{
   }
 
   componentDidUpdate(){
-    console.log("changed");
 
   }
 
@@ -34,9 +33,9 @@ class App extends Component{
       <header className="App-header">
         <h1 className="App-title">Countdown</h1>
       </header>
-      <AddWord submit={true} onAddWord={this.addWordToPyramid} />
-      <div className="App-intro">
-      <Pyramid2 canBlink={true} word={this.state.formWord}/>
+      <div className="App-Body">
+        <AddWord submit={true} onAddWord={this.addWordToPyramid} />
+        <Pyramid2 canBlink={true} word={this.state.formWord}/>
       </div>
     </div>
 
