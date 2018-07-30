@@ -18,7 +18,6 @@ class Pyramid2 extends Component{
         }
         this.createPyramid=this.createPyramid.bind(this);
         this.timer = this.timer.bind(this);
-        this.shuffle = this.shuffle.bind(this);
         this.randonNums = this.randonNums.bind(this);
     }
 
@@ -31,9 +30,7 @@ class Pyramid2 extends Component{
     	let countRange = ((allNums.length/2) + (Math.pow(allNums.length,2)/2) );
     	console.log("here is count range " +countRange+ " "+ allNums.length);
 
-    	let toReplace = this.getNRandomNumbers(countRange);
     	let randomArr = this.randonNums(countRange - 2, 1,countRange);
-    	console.log("here is random Arr "+ toReplace);
     	console.log("random Arr2 "+ randomArr);
 
     	//let toReplace = this.getNRandomNumbers(3, 1, allNums.length - 2);
@@ -49,7 +46,7 @@ class Pyramid2 extends Component{
 				let column = {
 		        	row: i,
 		        	key: `${rowString}${colString}`,
-		          	text: newWord !== "" && ((count % i )=== toReplace[j]) ? newWord : allNums[i],
+		          	text: newWord !== "" && ((count % i )=== randomArr[j]) ? newWord : allNums[i],
 		          	color: "blue"
 		        };
 				allCols.push(column);
