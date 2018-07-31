@@ -16,13 +16,18 @@
 .Columns {
 
 	width: 10%;
-	background-color: orange;
+	  background: -webkit-linear-gradient(#eee, #333);
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	white-space: nowrap; 
     overflow: hidden;
     text-overflow: clip;
+    border-radius: 5px;
+    margin:2px;
+    padding: 1px;
+    border: 2px black solid;
 
 
 }
