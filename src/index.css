@@ -3,9 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 10px;
-
   background: linear-gradient(to top, #17569f, #03121D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: 100px, 100px
+  background-size: auto
 
 }
 
