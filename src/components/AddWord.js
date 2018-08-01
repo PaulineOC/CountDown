@@ -30,7 +30,7 @@ class AddWord extends Component{
 		            	placeholder="study"
 		            	required
 		            />
-		            <input type="submit" value="Submit" disabled={this.state.submitting} />	            
+		            <input className="Add-Word" type="submit" value="Submit" disabled={this.state.submitting} />	            
 		        </form>
 	        </div>
 

@@ -8,11 +8,6 @@ class Pyramid2 extends Component {
     super(props);
     this.state = {
       allNums: [
-        "Ten",
-        "Nine",
-        "Eight",
-        "Seven",
-        "Six",
         "Five",
         "Four",
         "Three",
