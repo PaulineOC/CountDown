@@ -13,7 +13,7 @@
 }
 
 .Columns {
-  width: 10%;
+  width: 20%;
   //background: -webkit-linear-gradient(#eee, #333);
 
   display: flex;
@@ -31,10 +31,11 @@
 .imgStar {
   width: 10vw;
   height: auto;
-  position: absolute;
   z-index: -1;
   opacity: 0.25;
 }
 .colText {
-  font-size: 2.5vw;
+  font-size: 1.5vw;
+   position: absolute;
+
 }
