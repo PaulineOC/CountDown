@@ -2,9 +2,27 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.Opener{
+  color: white;
+  font-size: 1.75em;
+  display: block;
+  margin: 0 auto;
+}
+
+.formContainer {
+  width:25%;
+  padding-bottom: 1%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.inputText{
+  color: black;
+  font-size: 1.5em;
+  display: block;
+  margin: 0 auto;
+
 }
 
 .App-header {
@@ -16,23 +34,32 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  //font-size: 1.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .Add-Word {
-  font-size: 2em;
+  //font-size: 1.5em;
+  padding-top:10px;
+  padding-bottom: 10px;
+  display: block;
+  margin: 0 auto;
+  width: 75%;
 }
 
-.formContainer {
-  padding-top: 2%;
-  padding-bottom: 2%;
+.Pyramid {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
 }
+
+.Closer{
+  color: white;
+  font-size: 1.75em;
+  display: block;
+  margin: 0 auto;
+  padding-top: 2.5%;
+}
+
+
+

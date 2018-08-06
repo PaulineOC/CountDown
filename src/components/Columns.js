@@ -8,8 +8,6 @@ class Columns extends Component {
     };
   }
 
-  componentDidUpdate() {}
-
   render() {
     return (
       <div

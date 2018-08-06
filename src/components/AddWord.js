@@ -13,6 +13,7 @@ class AddWord extends Component{
 	}
 
 	submitform(e){
+		console.log(e);
 		e.preventDefault();
 		const {_word}= this.refs;
 		this.state.passToParent(_word);
@@ -23,14 +24,14 @@ class AddWord extends Component{
 	    return (
 	    	<div className="formContainer" >
 		        <form className="Add-Word" name="addWord" onSubmit={this.submitform}>
-		            <input 
-		            	className="Add-Word"
-		            	ref="_word" 
+		            <input
+		            	className="inputText"
+		            	ref="_word"
 		            	type="text"
-		            	placeholder="study"
+		            	placeholder="clean room"
 		            	required
-		            />
-		            <input className="Add-Word" type="submit" value="Submit" disabled={this.state.submitting} />	            
+		            /><br />
+		            <input className="Add-WordButton" type="submit" value="Submit" disabled={this.state.submitting} />            
 		        </form>
 	        </div>
 

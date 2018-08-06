@@ -91,6 +91,7 @@ class Pyramid2 extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+
     if (prevProps.word !== this.props.word) {
       console.log("form word " + this.props.word);
       this.setState({
@@ -117,7 +118,7 @@ class Pyramid2 extends Component {
       this.setState({ thisCol: 0, thisRow: newRow });
       //console.log("Changed Rows");
       if (newRow >= allBlocks.length) {
-        //Rest last item back to blue
+        //Reset last item back to white
         newCol = allBlocks[allBlocks.length - 1].length - 1;
         let lastItem = allBlocks[allBlocks.length - 1][newCol];
         allBlocks[allBlocks.length - 1][newCol] = {
@@ -127,9 +128,16 @@ class Pyramid2 extends Component {
         this.setState({
           allBlocks: allBlocks,
           thisCol: -1,
-          thisRow: 0
+          thisRow: 0,
         });
         //clearInterval(this.timer);
+
+        if(this.props.word){
+          console.log("2nd round ending");
+          clearInterval(this.timer);
+          this.props.showWord();
+        }
+
         return;
       }
       newCol = 0;

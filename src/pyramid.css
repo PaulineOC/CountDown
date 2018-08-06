@@ -6,36 +6,32 @@
   //padding-bottom: 1.5vh;
 }
 
-.Pyramid {
-  display: block;
-  margin: auto;
-  width: 75%;
-}
+
 
 .Columns {
   width: 20%;
   //background: -webkit-linear-gradient(#eee, #333);
-
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-  border-radius: 5px;
-  margin: 2px;
+  //border-radius: 5px;
+  //margin: 2px;
   padding: 1px;
   
 }
 
 .imgStar {
-  width: 10vw;
+  width: 7vw;
   height: auto;
   z-index: -1;
   opacity: 0.25;
 }
 .colText {
   font-size: 2.0vw;
-   position: absolute;
-
+  position: relative;
+  text-overflow: clip;
+  overflow: hidden;
 }
