@@ -32,8 +32,8 @@ class Pyramid2 extends Component {
     let count = 0;
     let countRange = allNums.length / 2 + Math.pow(allNums.length, 2) / 2;
 
-    let randomArr = this.randonNums(countRange / 11, 1, countRange);
-    console.log("random Arr: " + randomArr);
+    let randomArr = this.randonNums(countRange / 11, 1, countRange-1);
+    //console.log("random Arr: " + randomArr);
     //Rows
     for (let i = 0; i < allNums.length; i++) {
       let rowString = "RowNum: " + i;
@@ -45,11 +45,10 @@ class Pyramid2 extends Component {
           row: i,
           key: `${rowString}${colString}`,
           text:
-            newWord !== "" && randomArr.indexOf(count) > -1
-              ? newWord
-              : allNums[i],
-          color: "white",
-          width: `${i + 1}%`
+            newWord !== "" && randomArr.indexOf(count) > -1 ? newWord : allNums[i],
+          color: randomArr.indexOf(count) > -1 && newWord !== "" ? "yellow" : "white",
+          width: `${i + 1}%`,
+          hasWord: newWord!== "" && randomArr.indexOf(count) > -1 ? true : false
         };
         allCols.push(column);
         count++;
@@ -121,10 +120,15 @@ class Pyramid2 extends Component {
         //Reset last item back to white
         newCol = allBlocks[allBlocks.length - 1].length - 1;
         let lastItem = allBlocks[allBlocks.length - 1][newCol];
+        
+
         allBlocks[allBlocks.length - 1][newCol] = {
           ...lastItem,
-          color: "white"
+          color: "white" 
         };
+
+
+
         this.setState({
           allBlocks: allBlocks,
           thisCol: -1,
@@ -146,12 +150,13 @@ class Pyramid2 extends Component {
     this.setState({ thisCol: newCol });
     let newBlocks = allBlocks.map((row, rowindex) => {
       return row.map((column, colindex) => {
+        console.log(column);
         return {
           ...column,
           color:
             this.state.thisRow === rowindex && this.state.thisCol === colindex
-              ? "red"
-              : "white"
+              ? "red" 
+              : (column.hasWord) ? "yellow" : "white" 
         };
       });
     });

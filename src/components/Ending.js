@@ -19,8 +19,7 @@ class Ending extends Component{
 		else{
 			return (
 				<div class="Closer">
-					<p>Countdown is first and foremost an 
-						experimental visualization of procrastination
+					<p>Countdown is an experimental visualization of procrastination
 					</p>
 				</div>
 			)
