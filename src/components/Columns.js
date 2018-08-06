@@ -9,6 +9,7 @@ class Columns extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div
         className="Columns"
@@ -21,7 +22,7 @@ class Columns extends Component {
           class="imgStar"
           src="https://upload.wikimedia.org/wikipedia/commons/2/29/Gold_Star.svg"
         />
-        <div className="colText">{this.props.text}</div>
+        <div className={this.props.size}>{this.props.text}</div>
       </div>
     );
   }

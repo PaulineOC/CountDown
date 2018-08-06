@@ -48,6 +48,7 @@ class Pyramid2 extends Component {
             newWord !== "" && randomArr.indexOf(count) > -1 ? newWord : allNums[i],
           color: randomArr.indexOf(count) > -1 && newWord !== "" ? "yellow" : "white",
           width: `${i + 1}%`,
+          size: "colTextReg", 
           hasWord: newWord!== "" && randomArr.indexOf(count) > -1 ? true : false
         };
         allCols.push(column);
@@ -121,13 +122,11 @@ class Pyramid2 extends Component {
         newCol = allBlocks[allBlocks.length - 1].length - 1;
         let lastItem = allBlocks[allBlocks.length - 1][newCol];
         
-
         allBlocks[allBlocks.length - 1][newCol] = {
           ...lastItem,
+          size: "colTextReg",
           color: "white" 
         };
-
-
 
         this.setState({
           allBlocks: allBlocks,
@@ -141,7 +140,6 @@ class Pyramid2 extends Component {
           clearInterval(this.timer);
           this.props.showWord();
         }
-
         return;
       }
       newCol = 0;
@@ -150,12 +148,13 @@ class Pyramid2 extends Component {
     this.setState({ thisCol: newCol });
     let newBlocks = allBlocks.map((row, rowindex) => {
       return row.map((column, colindex) => {
-        console.log(column);
         return {
           ...column,
+          size: this.state.thisRow === rowindex && this.state.thisCol === colindex
+              ? "colTextBig" : "colTextReg",
           color:
             this.state.thisRow === rowindex && this.state.thisCol === colindex
-              ? "red" 
+              ? "#FFD700" 
               : (column.hasWord) ? "yellow" : "white" 
         };
       });
@@ -176,6 +175,7 @@ class Pyramid2 extends Component {
             <div className="Row" key={"Row " + index}>
               {block.map(column => (
                 <Column
+                  size= {column.size}
                   className="Column"
                   key={column.key}
                   text={column.text}

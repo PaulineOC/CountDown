@@ -9,7 +9,8 @@ class Ending extends Component{
 	}
 
 	reset(){
-		this.props.startOver();
+		//this.props.startOver();
+		window.location.reload();
 	}
 
 	render(){
@@ -19,8 +20,12 @@ class Ending extends Component{
 		else{
 			return (
 				<div class="Closer">
+					<h3>
+						Time to tackle it. 
+					</h3>
 					<p>Countdown is an experimental visualization of procrastination
 					</p>
+					<button onClick={this.reset} >Reset</button>
 				</div>
 			)
 		}

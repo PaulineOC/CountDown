@@ -17,7 +17,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-  //border-radius: 5px;
   //margin: 2px;
   padding: 1px;
   
@@ -27,11 +26,24 @@
   width: 7vw;
   height: auto;
   z-index: -1;
-  opacity: 0.25;
+  opacity: 0.3;
 }
-.colText {
-  font-size: 2.0vw;
+
+
+.colTextReg {
+  font-size: 2.5vw;
   position: absolute;
   text-overflow: clip;
   overflow: hidden;
+  font-weight: normal;
+}
+
+
+.colTextBig{
+  font-size: 3vw;
+  position: absolute;
+  text-overflow: clip;
+  overflow: hidden;
+  font-weight: bold;
+
 }

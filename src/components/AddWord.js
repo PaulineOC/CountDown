@@ -31,7 +31,7 @@ class AddWord extends Component{
 		            	placeholder="clean room"
 		            	required
 		            /><br />
-		            <input className="Add-WordButton" type="submit" value="Submit" disabled={this.state.submitting} />            
+		            <input className="Buttons" type="submit" value="Submit" disabled={this.state.submitting} />            
 		        </form>
 	        </div>
 

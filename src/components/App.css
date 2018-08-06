@@ -59,7 +59,14 @@
   display: block;
   margin: 0 auto;
   padding-top: 2.5%;
+  padding-bottom: 2.5%;
 }
 
+.Buttons{
+  font-size: 100px;
+  margin: 0 auto;
+  width: 75%;
+
+}
 
 
