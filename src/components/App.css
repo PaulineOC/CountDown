@@ -51,6 +51,7 @@
   display: block;
   margin: 0 auto;
   width: 75%;
+  padding-bottom: 1%;
 }
 
 .Closer{
@@ -58,6 +59,7 @@
   font-size: 1.75em;
   display: block;
   margin: 0 auto;
+  width: 75%;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
 }
@@ -66,6 +68,15 @@
   margin: 0 auto;
   width: 75%;
 
+}
+
+a:link {
+  color: silver;
+}
+
+
+a:visited {
+  color: gold;
 }
 
 

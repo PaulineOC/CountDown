@@ -38,7 +38,6 @@ class App extends Component{
     this.getElementsByClassName('inputText').value='';
   }
 
-
   render(){
     return (
       <div className="App">
