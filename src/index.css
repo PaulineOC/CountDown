@@ -16,3 +16,7 @@ body {
 }
 
 * { box-sizing: border-box; } 
+
+.Closer{
+  font-size: 1.15em;
+}
