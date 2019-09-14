@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 require('../index.css');
 
 
-
 class Ending extends Component{
 	constructor(props){
 		super(props);
@@ -42,8 +41,6 @@ class Ending extends Component{
 					</p>
 					<p>
 						Lastly, I wanted to explore the idea of procrastination. Similar to the delaying habit where people extend a countdown by decrementing in fractions (eg, 5-4-3-2-1.75-1.5-1.25...etc), this countdown is delayed by including featuring repeated numbers (so really the countdown is actually 15 seconds instead of 5). I chose to use repeating numbers instead of fractions to preserve the structure of the pyramid.
-
-
 					</p>
 					
 					<button onClick={this.reset} >Reset</button>
